@@ -1,16 +1,19 @@
 import smtplib
 import time
+import os
+from dotenv import load_dotenv
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
 
-# CONFIGURACIÓN
-SMTP_SERVER = "smtp.gmail.com"
-SMTP_PORT = 587
-EMAIL_REMITENTE = "eandreszambrano4@gmail.com"
-PASSWORD = "hacjtprclfngxfyq"
+# Cargar variables del .env
+load_dotenv()
 
-ESPERA_SEGUNDOS = 10
+SMTP_SERVER = os.getenv("SMTP_SERVER")
+SMTP_PORT = int(os.getenv("SMTP_PORT"))
+EMAIL_REMITENTE = os.getenv("EMAIL_REMITENTE")
+PASSWORD = os.getenv("EMAIL_PASSWORD")
+ESPERA_SEGUNDOS = int(os.getenv("ESPERA_SEGUNDOS"))
 
 
 DESTINATARIOS = [
